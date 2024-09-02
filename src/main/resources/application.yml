@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: azure-storage-spring-reactive-web-poc
+  cloud.azure.storage.blob:
+    account-name: ${AZURE_BLOB_STORAGE_ACCOUNT_NAME}
+    account-key: ${AZURE_BLOB_STORAGE_ACCOUNT_KEY}
