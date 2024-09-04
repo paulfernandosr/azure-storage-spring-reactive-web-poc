@@ -1,18 +1,18 @@
 package com.paulfernandosr.azurestoragespringreactivewebpoc;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DefaultDataBufferFactory;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.nio.ByteBuffer;
-import java.util.UUID;
 
-import static org.apache.commons.io.FilenameUtils.getExtension;
+import static java.util.UUID.randomUUID;
 
-public class AzureStorageUtils {
+public class AzureStorageHelper {
     public static String buildRandomBlobName(String filename) {
-        return String.format("%s.%s", UUID.randomUUID(), getExtension(filename));
+        return String.format("%s.%s", randomUUID(), FilenameUtils.getExtension(filename));
     }
 
     public static Flux<ByteBuffer> getByteBuffers(Flux<DataBuffer> dataBuffers) {

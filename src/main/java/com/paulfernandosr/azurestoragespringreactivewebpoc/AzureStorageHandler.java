@@ -24,7 +24,8 @@ public class AzureStorageHandler {
                 .map(MultiValueMap::toSingleValueMap)
                 .map(AzureStorageMapper::mapToAzureStorageCommand)
                 .flatMap(azureStorageService::uploadFile)
-                .flatMap(blobUrl -> ServerResponse.created(URI.create(blobUrl)).build());
+                .map(URI::create)
+                .flatMap(blobUri -> ServerResponse.created(blobUri).build());
     }
 
     public Mono<ServerResponse> downloadFile(ServerRequest request) {

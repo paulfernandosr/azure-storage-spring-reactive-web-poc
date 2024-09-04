@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import static com.paulfernandosr.azurestoragespringreactivewebpoc.AzureStorageUtils.buildRandomBlobName;
+import static com.paulfernandosr.azurestoragespringreactivewebpoc.AzureStorageHelper.buildRandomBlobName;
 
 @Service
 @RequiredArgsConstructor

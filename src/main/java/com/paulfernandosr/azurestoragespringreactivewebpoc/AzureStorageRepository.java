@@ -10,8 +10,8 @@ import reactor.core.publisher.Mono;
 
 import java.nio.ByteBuffer;
 
-import static com.paulfernandosr.azurestoragespringreactivewebpoc.AzureStorageUtils.getByteBuffers;
-import static com.paulfernandosr.azurestoragespringreactivewebpoc.AzureStorageUtils.getTotalByteCount;
+import static com.paulfernandosr.azurestoragespringreactivewebpoc.AzureStorageHelper.getByteBuffers;
+import static com.paulfernandosr.azurestoragespringreactivewebpoc.AzureStorageHelper.getTotalByteCount;
 
 @Repository
 @RequiredArgsConstructor
@@ -35,6 +35,6 @@ public class AzureStorageRepository {
 
     public Flux<DataBuffer> downloadFile(String containerName, String blobName) {
         BlockBlobAsyncClient blockBlobAsyncClient = getBlockBlobAsyncClient(containerName, blobName);
-        return blockBlobAsyncClient.downloadStream().map(AzureStorageUtils::getDataBuffer);
+        return blockBlobAsyncClient.downloadStream().map(AzureStorageHelper::getDataBuffer);
     }
 }
